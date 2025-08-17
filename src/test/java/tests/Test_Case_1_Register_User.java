@@ -2,6 +2,7 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.*;
@@ -21,7 +22,11 @@ public class Test_Case_1_Register_User {
         @BeforeClass
         public void setup() {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
+            driver = new ChromeDriver(options);
+
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().window().maximize();
             driver.get("https://www.automationexercise.com");

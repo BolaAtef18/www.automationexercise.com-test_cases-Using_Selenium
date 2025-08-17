@@ -4,6 +4,8 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+
 public class ContactUsPage {
 
     WebDriver driver;
@@ -37,7 +39,8 @@ public class ContactUsPage {
         Thread.sleep(1000);
         driver.findElement(message).sendKeys("testing");
         Thread.sleep(1000);
-        driver.findElement(uploadfile).sendKeys("C:\\Users\\batef\\Downloads\\rubber.jpg");
+        File file = new File("src/test/resources/files/rubber.jpg");
+        driver.findElement(uploadfile).sendKeys(file.getAbsolutePath());
         Thread.sleep(1000);
         driver.findElement(submit).click();
         Thread.sleep(1000);

@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class SignupPage {
 
@@ -44,15 +45,20 @@ public class SignupPage {
             this.driver = driver;
         }
 
-    public boolean isLogintoyouraccountVisible() {
-        return driver.findElement(Logintoyouraccount).isDisplayed();
+    public boolean isLogintoyouraccountVisible() throws InterruptedException {
+        WebElement logintoyouraccount = driver.findElement(Logintoyouraccount);
+        Thread.sleep(1000);
+        return logintoyouraccount.isDisplayed();
     }
 
     public boolean isNewUserSignupVisible() {
         return driver.findElement(NewUserSignup).isDisplayed();
     }
-    public boolean isEmailAddressalreadyexistVisible() {
-        return driver.findElement(EmailAddressalreadyexist).isDisplayed();
+    public boolean isEmailAddressalreadyexistVisible() throws InterruptedException {
+         WebElement emailAddress = driver.findElement(EmailAddressalreadyexist);
+         Thread.sleep(1000);
+        return emailAddress.isDisplayed();
+
     }
 
     public void fillSignupForm(String name, String email) {
