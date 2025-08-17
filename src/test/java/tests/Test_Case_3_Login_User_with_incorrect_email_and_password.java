@@ -44,7 +44,7 @@ public class Test_Case_3_Login_User_with_incorrect_email_and_password {
     }
 
     @Test
-    public void testLoginUserwithINCorrectEmailandPassword()  {
+    public void testLoginUserwithINCorrectEmailandPassword() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         homePage.clickSignupLogin();
         Assert.assertTrue(signupPage.isLogintoyouraccountVisible(),"Login to your account is not visible");
