@@ -1,4 +1,4 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_2_Login_User_with_correct_email_and_password {
+public class Test_Case_5_Register_User_with_existing_email {
 
     WebDriver driver;
     HomePage homePage;
@@ -21,7 +21,6 @@ public class Test_Case_2_Login_User_with_correct_email_and_password {
     LoggedInPage loggedInPage;
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
-
 
     @BeforeClass
     public void setup() {
@@ -45,24 +44,15 @@ public class Test_Case_2_Login_User_with_correct_email_and_password {
     }
 
     @Test
-    public void testLoginUserwithCorrectEmailandPassword() throws InterruptedException {
+    public void testRegUserWithExistEmail() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
+        Thread.sleep(1000);
         homePage.clickSignupLogin();
-        Assert.assertTrue(signupPage.isLogintoyouraccountVisible(),"Login to your account is not visible");
-        signupPage.fillSignupForm("bola atef", "bola123@Test.com");
-        signupPage.fillAccountInfo();
-        signupPage.clickCreateAccount();
-        accountCreatedPage.isAccountCreatedVisible();
-        accountCreatedPage.contiuneButton();
-        Thread.sleep(2000);
-        loggedInPage.isLogged_in_as_usernameVisible();
-        logOutPage.logout_button();
-        Thread.sleep(2000);
-        signupPage.filloginForm("bola123@Test.com","Test@1234");
-        loggedInPage.isLogged_in_as_usernameVisible();
-        loggedInPage.delete_button();
-        deleteButtonPage.isAccount_DeletedVisible();
-        deleteButtonPage.contine_button();
+        Thread.sleep(1000);
+        signupPage.isNewUserSignupVisible();
+        signupPage.fillSignupForm("login","login@logout.com");
+        Assert.assertTrue(signupPage.isEmailAddressalreadyexistVisible(), "Email Address not visible");
+
     }
 
     @AfterClass

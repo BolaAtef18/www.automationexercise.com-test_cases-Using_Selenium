@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -53,14 +52,14 @@ public class AllProductsPage {
     public void Enterproductnameandclicksearch() {
         driver.findElement(searchfiled).sendKeys("Men Tshirt");
         driver.findElement(searchbutton).click();
-        Assert.assertTrue(driver.findElement(searchedproduct).isDisplayed(),"SEARCHED PRODUCTS' is not visible!");
+        assert driver.findElement(searchedproduct).isDisplayed(): "SEARCHED PRODUCTS' is not visible!";
     }
 
     public void verifyAllSearchedProductsVisible(){
         List<WebElement> products =driver.findElements(searchedproduct);
 
         for (WebElement product:products){
-            Assert.assertTrue(product.isDisplayed(),"Product is not visible: " + product.getText());
+            assert product.isDisplayed(): "Product is not visible: " + product.getText();
         }
     }
 

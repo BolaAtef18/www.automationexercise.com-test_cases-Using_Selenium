@@ -1,6 +1,7 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +13,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_5_Register_User_with_existing_email {
+public class Test_Case_4_Logout_User {
 
     WebDriver driver;
     HomePage homePage;
@@ -44,16 +45,24 @@ public class Test_Case_5_Register_User_with_existing_email {
     }
 
     @Test
-    public void testRegUserWithExistEmail() throws InterruptedException {
+    public void TestLogoutUser() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(1000);
         homePage.clickSignupLogin();
         Thread.sleep(1000);
-        signupPage.isNewUserSignupVisible();
-        signupPage.fillSignupForm("login","login@logout.com");
-        Assert.assertTrue(signupPage.isEmailAddressalreadyexistVisible(), "Email Address not visible");
+        signupPage.isLogintoyouraccountVisible();
+        Thread.sleep(1000);
+        signupPage.filloginForm("login@logout.com","123456");
+        Thread.sleep(1000);
+        loggedInPage.isLogged_in_as_usernameVisible();
+        Thread.sleep(1000);
+        loggedInPage.logout_button();
+        Thread.sleep(1000);
+        signupPage.isLogintoyouraccountVisible();
+        Thread.sleep(1000);
 
     }
+
 
     @AfterClass
     public void tearDown() {

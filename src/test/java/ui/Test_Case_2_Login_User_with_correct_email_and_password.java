@@ -1,4 +1,4 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,8 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_6_Contact_Us_Form {
+public class Test_Case_2_Login_User_with_correct_email_and_password {
+
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -20,7 +21,7 @@ public class Test_Case_6_Contact_Us_Form {
     LoggedInPage loggedInPage;
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
-    ContactUsPage contactUsPage;
+
 
     @BeforeClass
     public void setup() {
@@ -40,30 +41,29 @@ public class Test_Case_6_Contact_Us_Form {
         loggedInPage = new LoggedInPage(driver);
         deleteButtonPage = new DeleteButtonPage(driver);
         logOutPage = new LogOutPage(driver);
-        contactUsPage =new ContactUsPage(driver);
 
     }
 
     @Test
-    public void testContactUsForm() throws InterruptedException {
+    public void testLoginUserwithCorrectEmailandPassword() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
-        Thread.sleep(1000);
-        homePage.contactusbutton();
-        Thread.sleep(1000);
-        Assert.assertTrue(contactUsPage.isGetInTouchVisible(),"Get In Touch not visible");
-        Thread.sleep(1000);
-        contactUsPage.EnterData();
-        Thread.sleep(1000);
-        contactUsPage.issuccessmessageVisible();
-        Thread.sleep(1000);
-        contactUsPage.ClickOnHome();
-        Thread.sleep(1000);
-        contactUsPage.ishomepageVisible();
-        Thread.sleep(1000);
-
+        homePage.clickSignupLogin();
+        Assert.assertTrue(signupPage.isLogintoyouraccountVisible(),"Login to your account is not visible");
+        signupPage.fillSignupForm("bola atef", "bola123@Test.com");
+        signupPage.fillAccountInfo();
+        signupPage.clickCreateAccount();
+        accountCreatedPage.isAccountCreatedVisible();
+        accountCreatedPage.contiuneButton();
+        Thread.sleep(2000);
+        loggedInPage.isLogged_in_as_usernameVisible();
+        logOutPage.logout_button();
+        Thread.sleep(2000);
+        signupPage.filloginForm("bola123@Test.com","Test@1234");
+        loggedInPage.isLogged_in_as_usernameVisible();
+        loggedInPage.delete_button();
+        deleteButtonPage.isAccount_DeletedVisible();
+        deleteButtonPage.contine_button();
     }
-
-
 
     @AfterClass
     public void tearDown() {

@@ -1,6 +1,7 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,7 +13,8 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_7_Verify_Test_Cases_Page {
+public class Test_Case_8_Verify_All_Products_and_product_detail_page {
+
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -20,7 +22,7 @@ public class Test_Case_7_Verify_Test_Cases_Page {
     LoggedInPage loggedInPage;
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
-    ContactUsPage contactUsPage;
+    AllProductsPage allProductsPage;
 
     @BeforeClass
     public void setup() {
@@ -40,23 +42,30 @@ public class Test_Case_7_Verify_Test_Cases_Page {
         loggedInPage = new LoggedInPage(driver);
         deleteButtonPage = new DeleteButtonPage(driver);
         logOutPage = new LogOutPage(driver);
-        contactUsPage =new ContactUsPage(driver);
+        allProductsPage = new AllProductsPage(driver);
 
     }
 
-    @Test
-    public void testTestCasesPage() throws InterruptedException {
-        Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
-        Thread.sleep(1000);
-        homePage.testCasebutton();
-        Thread.sleep(1000);
-        Assert.assertTrue(homePage.isTestCasesVisible(), "Test Cases page not Visible");
-    }
+   @Test
+   public void testAllProductsandproductdetailpage() throws InterruptedException {
+       Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
+       Thread.sleep(1000);
+       homePage.productbutton();
+       Thread.sleep(1000);
+       homePage.isAllproductVisible();
+       Thread.sleep(1000);
+       allProductsPage.isProductListVisible();
+       Thread.sleep(1000);
+       allProductsPage.clickViewProductOfFirstProduct();
+       Thread.sleep(1000);
+       allProductsPage.verifyProductDetailsOfFirestProduct();
+       Thread.sleep(1000);
+
+   }
 
 
     @AfterClass
     public void tearDown() {
         driver.quit();
     }
-
 }

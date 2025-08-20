@@ -1,7 +1,6 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,7 +12,8 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_8_Verify_All_Products_and_product_detail_page {
+public class Test_Case_9_Search_Product {
+
 
     WebDriver driver;
     HomePage homePage;
@@ -46,22 +46,19 @@ public class Test_Case_8_Verify_All_Products_and_product_detail_page {
 
     }
 
-   @Test
-   public void testAllProductsandproductdetailpage() throws InterruptedException {
-       Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
-       Thread.sleep(1000);
-       homePage.productbutton();
-       Thread.sleep(1000);
-       homePage.isAllproductVisible();
-       Thread.sleep(1000);
-       allProductsPage.isProductListVisible();
-       Thread.sleep(1000);
-       allProductsPage.clickViewProductOfFirstProduct();
-       Thread.sleep(1000);
-       allProductsPage.verifyProductDetailsOfFirestProduct();
-       Thread.sleep(1000);
+    @Test
+    public void testSearchProduct() throws InterruptedException {
+        Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
+        Thread.sleep(1000);
+        homePage.productbutton();
+        Thread.sleep(1000);
+        homePage.isAllproductVisible();
+        Thread.sleep(1000);
+        allProductsPage.Enterproductnameandclicksearch();
+        Thread.sleep(1000);
+        allProductsPage.verifyAllSearchedProductsVisible();
 
-   }
+    }
 
 
     @AfterClass

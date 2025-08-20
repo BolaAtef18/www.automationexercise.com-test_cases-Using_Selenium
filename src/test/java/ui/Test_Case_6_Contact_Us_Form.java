@@ -1,7 +1,6 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,8 +12,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_4_Logout_User {
-
+public class Test_Case_6_Contact_Us_Form {
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -22,6 +20,7 @@ public class Test_Case_4_Logout_User {
     LoggedInPage loggedInPage;
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
+    ContactUsPage contactUsPage;
 
     @BeforeClass
     public void setup() {
@@ -41,27 +40,29 @@ public class Test_Case_4_Logout_User {
         loggedInPage = new LoggedInPage(driver);
         deleteButtonPage = new DeleteButtonPage(driver);
         logOutPage = new LogOutPage(driver);
+        contactUsPage =new ContactUsPage(driver);
 
     }
 
     @Test
-    public void TestLogoutUser() throws InterruptedException {
+    public void testContactUsForm() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(1000);
-        homePage.clickSignupLogin();
+        homePage.contactusbutton();
         Thread.sleep(1000);
-        signupPage.isLogintoyouraccountVisible();
+        Assert.assertTrue(contactUsPage.isGetInTouchVisible(),"Get In Touch not visible");
         Thread.sleep(1000);
-        signupPage.filloginForm("login@logout.com","123456");
+        contactUsPage.EnterData();
         Thread.sleep(1000);
-        loggedInPage.isLogged_in_as_usernameVisible();
+        contactUsPage.issuccessmessageVisible();
         Thread.sleep(1000);
-        loggedInPage.logout_button();
+        contactUsPage.ClickOnHome();
         Thread.sleep(1000);
-        signupPage.isLogintoyouraccountVisible();
+        contactUsPage.ishomepageVisible();
         Thread.sleep(1000);
 
     }
+
 
 
     @AfterClass

@@ -1,4 +1,4 @@
-package tests;
+package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -12,9 +12,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_9_Search_Product {
-
-
+public class Test_Case_7_Verify_Test_Cases_Page {
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -22,7 +20,7 @@ public class Test_Case_9_Search_Product {
     LoggedInPage loggedInPage;
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
-    AllProductsPage allProductsPage;
+    ContactUsPage contactUsPage;
 
     @BeforeClass
     public void setup() {
@@ -42,22 +40,17 @@ public class Test_Case_9_Search_Product {
         loggedInPage = new LoggedInPage(driver);
         deleteButtonPage = new DeleteButtonPage(driver);
         logOutPage = new LogOutPage(driver);
-        allProductsPage = new AllProductsPage(driver);
+        contactUsPage =new ContactUsPage(driver);
 
     }
 
     @Test
-    public void testSearchProduct() throws InterruptedException {
+    public void testTestCasesPage() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(1000);
-        homePage.productbutton();
+        homePage.testCasebutton();
         Thread.sleep(1000);
-        homePage.isAllproductVisible();
-        Thread.sleep(1000);
-        allProductsPage.Enterproductnameandclicksearch();
-        Thread.sleep(1000);
-        allProductsPage.verifyAllSearchedProductsVisible();
-
+        Assert.assertTrue(homePage.isTestCasesVisible(), "Test Cases page not Visible");
     }
 
 
@@ -65,4 +58,5 @@ public class Test_Case_9_Search_Product {
     public void tearDown() {
         driver.quit();
     }
+
 }
