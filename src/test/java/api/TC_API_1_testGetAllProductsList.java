@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class testGetAllProductsList {
+public class TC_API_1_testGetAllProductsList {
 
     @Test
     public void testGetAllProducts() {
