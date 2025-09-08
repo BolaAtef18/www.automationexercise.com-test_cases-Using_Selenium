@@ -22,4 +22,11 @@ public class SearchAPI {
                 .extract()
                 .response();
     }
+
+    // Method for POST searchProduct without parameter
+    public Response SearchProductWithoutParam() {
+        return RestAssured
+                .given()
+                .post(BASE_URL + "/searchProduct");
+    }
 }
