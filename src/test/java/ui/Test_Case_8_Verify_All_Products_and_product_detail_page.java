@@ -29,7 +29,6 @@ public class Test_Case_8_Verify_All_Products_and_product_detail_page {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");          // يخلي المتصفح يرن من غير GUI
         options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
         driver = new ChromeDriver(options);
 
