@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="UISuite">
+    <test name="UI Tests">
+        <packages>
+            <package name="ui"></package>
+        </packages>
+    </test>
+</suite>
