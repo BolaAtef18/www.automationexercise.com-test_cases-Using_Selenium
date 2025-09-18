@@ -2,6 +2,11 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class PaymentPage {
 
@@ -13,7 +18,7 @@ public class PaymentPage {
     By expirationmonth = By.xpath("//*[@id=\"payment-form\"]/div[3]/div[2]/input");
     By expirationyear = By.xpath("//*[@id=\"payment-form\"]/div[3]/div[3]/input");
     By payandconfirmorderbutton = By.xpath("//*[@id=\"submit\"]");
-    By successmessage = By.xpath("//div[contains(@class,'alert-success') and contains(text(),'Your order has been placed successfully')]");
+    By successmessage = By.xpath("//*[contains(text(),'Order Placed!')]");
 
     public PaymentPage(WebDriver driver){
         this.driver= driver;
@@ -28,8 +33,7 @@ public class PaymentPage {
         driver.findElement(payandconfirmorderbutton).click();
     }
 
-    public boolean issuccessmessagevisible(){return driver.findElement(successmessage).isDisplayed();}
-
-
-
+    public boolean issuccessmessagevisible() {
+        return driver.findElement(successmessage).isDisplayed();
+    }
 }

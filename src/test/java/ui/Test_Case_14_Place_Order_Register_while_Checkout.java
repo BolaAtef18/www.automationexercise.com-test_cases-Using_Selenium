@@ -63,11 +63,11 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         int index= 6;
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         homePage.HoverAndAddProductToCart(index);
         Thread.sleep(1000);
         homePage.addproducttocart(index);
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         homePage.pressonviewcart();
         Thread.sleep(1000);
         Assert.assertTrue(cartPage.isProductDisplayed(index),"product not in cart!");
@@ -99,9 +99,9 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         checkOutPage.addcomment();
         Thread.sleep(1000);
         checkOutPage.pressonplaceorderbutton();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         paymentPage.enterdataofcardandpayorder();
-        Thread.sleep(1000);
+       // Thread.sleep(1000);
         Assert.assertTrue(paymentPage.issuccessmessagevisible(),"success message not visible");
         Thread.sleep(1000);
         loggedInPage.delete_button();
