@@ -1,6 +1,5 @@
 package ui;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +12,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_14_Place_Order_Register_while_Checkout {
-
-
+public class Test_Case_18_View_Category_Products {
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -29,7 +26,6 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
     AnyProductPage anyProductPage;
     CheckOutPage checkOutPage;
     PaymentPage paymentPage;
-
 
     @BeforeClass
     public void setup() {
@@ -57,56 +53,27 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         paymentPage = new PaymentPage(driver);
     }
 
-
     @Test
-    public void testPlaceOrderRegisterwhileCheckout () throws InterruptedException {
-        int index= 6;
+    public void testViewCategoryProduct() throws InterruptedException {
+        int index = 1;
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(2000);
-        homePage.HoverAndAddProductToCart(index);
-        Thread.sleep(3000);
-        homePage.pressonviewcart();
+        homePage.iscategoryvisable();
         Thread.sleep(1000);
-        Assert.assertTrue(cartPage.isProductDisplayed(index),"product not in cart!");
+        homePage.womencat();
         Thread.sleep(1000);
-        cartPage.pressonprocessdtocheckoutbutton();
+        homePage.pressondress();
         Thread.sleep(1000);
-        cartPage.pressonRegister_Loginbutton();
+        Assert.assertTrue(productsPage.iscategoryvisible(), "Category is not visible!");
         Thread.sleep(1000);
-        signupPage.fillSignupForm("testuser123","bola@testuser.com");
+        Assert.assertEquals(productsPage.iswomendressproductvisible(),"WOMEN - DRESS PRODUCTS");
         Thread.sleep(1000);
-        signupPage.fillAccountInfo();
+        productsPage.pressonmencat();
         Thread.sleep(1000);
-        signupPage.clickCreateAccount();
+        productsPage.pressontshirt();
         Thread.sleep(1000);
-        Assert.assertTrue(accountCreatedPage.isAccountCreatedVisible(),"Account Created message not visible!");
-        Thread.sleep(1000);
-        accountCreatedPage.contiuneButton();
-        Thread.sleep(1000);
-        Assert.assertTrue(loggedInPage.isLogged_in_as_usernameVisible(),"Logged in as username is not visible!");
-        Thread.sleep(1000);
-        homePage.pressoncartbutton();
-        Thread.sleep(1000);
-        cartPage.pressonprocessdtocheckoutbutton();
-        Thread.sleep(1000);
-        Assert.assertTrue(checkOutPage.isaddressdetailsvisiable(),"Address Details not visible");
-        Thread.sleep(1000);
-        Assert.assertTrue(checkOutPage.isreviewyourordervisiable(),"Review your order not visible");
-        Thread.sleep(1000);
-        checkOutPage.addcomment();
-        Thread.sleep(1000);
-        checkOutPage.pressonplaceorderbutton();
-        Thread.sleep(3000);
-        paymentPage.enterdataofcardandpayorder();
-       // Thread.sleep(1000);
-        Assert.assertTrue(paymentPage.issuccessmessagevisible(),"success message not visible");
-        Thread.sleep(1000);
-        loggedInPage.delete_button();
-        Thread.sleep(1000);
-        deleteButtonPage.isAccount_DeletedVisible();
-        Thread.sleep(1000);
-        deleteButtonPage.contine_button();
+        Assert.assertEquals(productsPage.ismentshortsvisible(),"MEN - TSHIRTS PRODUCTS");
         Thread.sleep(1000);
 
     }

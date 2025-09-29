@@ -1,6 +1,5 @@
 package ui;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,9 +12,7 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_14_Place_Order_Register_while_Checkout {
-
-
+public class Test_Case_15_Place_Order_Register_before_Checkout {
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -59,20 +56,12 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
 
 
     @Test
-    public void testPlaceOrderRegisterwhileCheckout () throws InterruptedException {
+    public void testPlaceOrderRegisterBeforeCheckout () throws InterruptedException {
         int index= 6;
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(2000);
-        homePage.HoverAndAddProductToCart(index);
-        Thread.sleep(3000);
-        homePage.pressonviewcart();
-        Thread.sleep(1000);
-        Assert.assertTrue(cartPage.isProductDisplayed(index),"product not in cart!");
-        Thread.sleep(1000);
-        cartPage.pressonprocessdtocheckoutbutton();
-        Thread.sleep(1000);
-        cartPage.pressonRegister_Loginbutton();
+        homePage.clickSignupLogin();
         Thread.sleep(1000);
         signupPage.fillSignupForm("testuser123","bola@testuser.com");
         Thread.sleep(1000);
@@ -86,10 +75,16 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         Thread.sleep(1000);
         Assert.assertTrue(loggedInPage.isLogged_in_as_usernameVisible(),"Logged in as username is not visible!");
         Thread.sleep(1000);
-        homePage.pressoncartbutton();
+
+        homePage.HoverAndAddProductToCart(index);
+        Thread.sleep(3000);
+        homePage.pressonviewcart();
+        Thread.sleep(1000);
+        Assert.assertTrue(cartPage.isProductDisplayed(index),"product not in cart!");
         Thread.sleep(1000);
         cartPage.pressonprocessdtocheckoutbutton();
         Thread.sleep(1000);
+
         Assert.assertTrue(checkOutPage.isaddressdetailsvisiable(),"Address Details not visible");
         Thread.sleep(1000);
         Assert.assertTrue(checkOutPage.isreviewyourordervisiable(),"Review your order not visible");
@@ -99,7 +94,7 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         checkOutPage.pressonplaceorderbutton();
         Thread.sleep(3000);
         paymentPage.enterdataofcardandpayorder();
-       // Thread.sleep(1000);
+        // Thread.sleep(1000);
         Assert.assertTrue(paymentPage.issuccessmessagevisible(),"success message not visible");
         Thread.sleep(1000);
         loggedInPage.delete_button();

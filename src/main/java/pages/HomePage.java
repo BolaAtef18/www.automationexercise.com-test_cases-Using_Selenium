@@ -4,6 +4,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 public class HomePage {
 
@@ -24,6 +29,9 @@ public class HomePage {
     By cartButton = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[3]/a");
     By viewProduct = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[2]/ul/li/a");
     By viewcartbutton = By.xpath("//*[@id=\"cartModal\"]/div/div/div[2]/p[2]/a/u");
+    By categories = By.xpath("/html/body/section[2]/div/div/div[1]/div/h2");
+    By women = By.xpath("//*[@id=\"accordian\"]/div[1]/div[1]/h4/a");
+    By dress = By.xpath("//*[@id=\"Women\"]/div/ul/li[1]/a");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -52,12 +60,30 @@ public class HomePage {
 
     public void pressoncartbutton(){driver.findElement(cartButton).click();}
     public void pressonViewProductbutton(int index){driver.findElement(By.xpath("//a[@href='/product_details/"+index+"']")).click();}
-    public void addproducttocart (int index){driver.findElement(By.xpath("//a[@data-product-id="+index+"]"));}
+    //public void addproducttocart (int index){driver.findElement(By.xpath("//a[@data-product-id="+index+"]")).click();}
     public void pressonviewcart(){driver.findElement(viewcartbutton).click();}
 
     public void HoverAndAddProductToCart(int index) throws InterruptedException {
-        actions.moveToElement(driver.findElement(By.xpath("//a[@data-product-id="+ index +"]"))).perform();
-        driver.findElement(By.xpath("/html/body/section[2]/div/div/div[2]/div/div[7]/div/div[1]/div[2]/div/a[@data-product-id="+index+"]")).click();
+
+        List<WebElement> products = driver.findElements(By.xpath("//div[@class='product-overlay']"));
+
+        WebElement product = products.get(index-1);
+        actions.moveToElement(product).perform();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='overlay-content']//a[@data-product-id="+index+"]")));
+        addToCartBtn.click();
+    }
+    public boolean iscategoryvisable(){
+        return driver.findElement(categories).isDisplayed();
+    }
+
+    public void womencat(){
+        driver.findElement(women).click();
+    }
+
+    public void pressondress(){
+        driver.findElement(dress).click();
     }
 }
 
