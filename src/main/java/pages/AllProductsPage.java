@@ -17,9 +17,6 @@ public class AllProductsPage {
     By availability = By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[2]");
     By condition = By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[3]");
     By brand = By.xpath("/html/body/section/div/div/div[2]/div[2]/div[2]/div/p[4]");
-    By searchfiled = By.xpath("//*[@id=\"search_product\"]");
-    By searchbutton = By.xpath("//*[@id=\"submit_search\"]");
-    By searchedproduct = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]");
 
 
 
@@ -48,21 +45,4 @@ public class AllProductsPage {
         assert driver.findElement(condition).isDisplayed() : "Condition not visible";
         assert driver.findElement(brand).isDisplayed() : "Brand not visible";
     }
-
-    public void Enterproductnameandclicksearch() {
-        driver.findElement(searchfiled).sendKeys("Men Tshirt");
-        driver.findElement(searchbutton).click();
-        assert driver.findElement(searchedproduct).isDisplayed(): "SEARCHED PRODUCTS' is not visible!";
-    }
-
-    public void verifyAllSearchedProductsVisible(){
-        List<WebElement> products =driver.findElements(searchedproduct);
-
-        for (WebElement product:products){
-            assert product.isDisplayed(): "Product is not visible: " + product.getText();
-        }
-    }
-
-
-
 }

@@ -23,6 +23,7 @@ public class Test_Case_9_Search_Product {
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
     AllProductsPage allProductsPage;
+    ProductsPage productsPage;
 
     @BeforeClass
     public void setup() {
@@ -43,20 +44,23 @@ public class Test_Case_9_Search_Product {
         deleteButtonPage = new DeleteButtonPage(driver);
         logOutPage = new LogOutPage(driver);
         allProductsPage = new AllProductsPage(driver);
+        productsPage = new ProductsPage(driver);
 
     }
 
     @Test
     public void testSearchProduct() throws InterruptedException {
+        String ProdName="Men Tshirt";
+
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(1000);
         homePage.productbutton();
         Thread.sleep(1000);
         homePage.isAllproductVisible();
         Thread.sleep(1000);
-        allProductsPage.Enterproductnameandclicksearch();
+        productsPage.Enterproductnameandclicksearch(ProdName);
         Thread.sleep(1000);
-        allProductsPage.verifyAllSearchedProductsVisible();
+        productsPage.verifyAllSearchedProductsVisible();
 
     }
 

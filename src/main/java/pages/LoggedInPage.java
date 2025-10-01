@@ -9,6 +9,8 @@ public class LoggedInPage {
     By LoggedIn_Username = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
     By Delete_Button =By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a");
     By Logout_Button =By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a");
+    By cartButton = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[3]/a");
+
 
 
     public LoggedInPage(WebDriver driver) {
@@ -27,4 +29,6 @@ public class LoggedInPage {
     public void logout_button(){
         driver.findElement(Logout_Button).click();
     }
+    public void pressoncartbutton(){driver.findElement(cartButton).click();}
+
 }

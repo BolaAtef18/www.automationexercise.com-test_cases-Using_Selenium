@@ -24,7 +24,6 @@ public class Test_Case_17_Remove_Products_From_Cart {
     AllProductsPage allProductsPage;
     CartPage cartPage;
     ProductsPage productsPage;
-    AnyProductPage anyProductPage;
     CheckOutPage checkOutPage;
     PaymentPage paymentPage;
 
@@ -49,7 +48,6 @@ public class Test_Case_17_Remove_Products_From_Cart {
         allProductsPage = new AllProductsPage(driver);
         cartPage = new CartPage(driver);
         productsPage = new ProductsPage(driver);
-        anyProductPage = new AnyProductPage(driver);
         checkOutPage = new CheckOutPage(driver);
         paymentPage = new PaymentPage(driver);
     }

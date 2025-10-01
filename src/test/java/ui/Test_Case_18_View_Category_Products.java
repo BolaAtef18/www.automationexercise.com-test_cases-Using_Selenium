@@ -23,7 +23,6 @@ public class Test_Case_18_View_Category_Products {
     AllProductsPage allProductsPage;
     CartPage cartPage;
     ProductsPage productsPage;
-    AnyProductPage anyProductPage;
     CheckOutPage checkOutPage;
     PaymentPage paymentPage;
 
@@ -48,7 +47,6 @@ public class Test_Case_18_View_Category_Products {
         allProductsPage = new AllProductsPage(driver);
         cartPage = new CartPage(driver);
         productsPage = new ProductsPage(driver);
-        anyProductPage = new AnyProductPage(driver);
         checkOutPage = new CheckOutPage(driver);
         paymentPage = new PaymentPage(driver);
     }

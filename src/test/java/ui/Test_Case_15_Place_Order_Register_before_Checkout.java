@@ -23,7 +23,6 @@ public class Test_Case_15_Place_Order_Register_before_Checkout {
     AllProductsPage allProductsPage;
     CartPage cartPage;
     ProductsPage productsPage;
-    AnyProductPage anyProductPage;
     CheckOutPage checkOutPage;
     PaymentPage paymentPage;
 
@@ -49,7 +48,6 @@ public class Test_Case_15_Place_Order_Register_before_Checkout {
         allProductsPage = new AllProductsPage(driver);
         cartPage = new CartPage(driver);
         productsPage = new ProductsPage(driver);
-        anyProductPage = new AnyProductPage(driver);
         checkOutPage = new CheckOutPage(driver);
         paymentPage = new PaymentPage(driver);
     }

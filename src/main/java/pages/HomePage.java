@@ -32,6 +32,8 @@ public class HomePage {
     By categories = By.xpath("/html/body/section[2]/div/div/div[1]/div/h2");
     By women = By.xpath("//*[@id=\"accordian\"]/div[1]/div[1]/h4/a");
     By dress = By.xpath("//*[@id=\"Women\"]/div/ul/li[1]/a");
+    By recommendeditems = By.xpath("/html/body/section[2]/div/div/div[2]/div[2]");
+    By addtocartof1strecommendeditem = By.xpath("//*[@id=\"recommended-item-carousel\"]/div/div[2]/div[2]/div/div/div/a");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -84,6 +86,29 @@ public class HomePage {
 
     public void pressondress(){
         driver.findElement(dress).click();
+    }
+
+    public void scrolldowntorecommendeditems(){
+        WebElement footer = driver.findElement(recommendeditems);
+        Actions actions = new Actions(driver);
+        actions.scrollToElement(footer).perform();
+    }
+
+    public boolean isRecommendeditems(){
+        return driver.findElement(recommendeditems).isDisplayed();
+    }
+
+    public void pressonaddtocartbtnof1stiteminrecommended(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement addToCartBtnofthe1stitem = wait.until(ExpectedConditions.elementToBeClickable(addtocartof1strecommendeditem));
+        addToCartBtnofthe1stitem.click();
+    }
+    public int idof1st(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement addToCartBtnofthe1stitem12 = wait.until(ExpectedConditions.elementToBeClickable(addtocartof1strecommendeditem));
+        String idof1strecitem =  addToCartBtnofthe1stitem12.getAttribute("data-product-id");
+        return Integer.parseInt(idof1strecitem);
+
     }
 }
 

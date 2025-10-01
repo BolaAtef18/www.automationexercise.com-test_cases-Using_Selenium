@@ -24,7 +24,7 @@ public class Test_Case_13_Verify_Product_quantity_in_Cart {
     AllProductsPage allProductsPage;
     CartPage cartPage;
     ProductsPage productsPage;
-    AnyProductPage anyProductPage;
+    ProductDetailsPage productDetailsPage;
 
 
     @BeforeClass
@@ -48,7 +48,8 @@ public class Test_Case_13_Verify_Product_quantity_in_Cart {
         allProductsPage = new AllProductsPage(driver);
         cartPage = new CartPage(driver);
         productsPage = new ProductsPage(driver);
-        anyProductPage = new AnyProductPage(driver);
+
+        productDetailsPage = new ProductDetailsPage(driver);
 
 
 
@@ -62,13 +63,13 @@ public class Test_Case_13_Verify_Product_quantity_in_Cart {
         Thread.sleep(1000);
         homePage.pressonViewProductbutton(index);
         Thread.sleep(1000);
-        Assert.assertTrue(anyProductPage.productdetails());
+        Assert.assertTrue(productDetailsPage.thisproductdetails());
         Thread.sleep(1000);
-        anyProductPage.increaseQuantity(4);
+        productDetailsPage.increaseQuantity(4);
         Thread.sleep(1000);
-        anyProductPage.pressonaddtocartbutton();
+        productDetailsPage.pressonaddtocartbutton();
         Thread.sleep(1000);
-        anyProductPage.pressonviewcartbutton();
+        productsPage.pressonViewCartButton();
         Thread.sleep(2000);
         Assert.assertTrue(cartPage.isProductDisplayed(index), "First product not in cart!");
         Thread.sleep(1000);
