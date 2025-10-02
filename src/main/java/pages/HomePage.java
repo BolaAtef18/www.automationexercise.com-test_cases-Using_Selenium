@@ -24,7 +24,7 @@ public class HomePage {
     By Allproduct = By.xpath("/html/body/section[2]/div/div/div[2]/div/h2");
     By subscription = By.xpath("//*[@id=\"footer\"]/div[1]/div/div/div[2]/div/h2");
     By subscriptionEmail = By.xpath("//*[@id=\"susbscribe_email\"]");
-    By arrowButton = By.xpath("//*[@id=\"subscribe\"]/i");
+    By submitsubscripButton = By.xpath("//*[@id=\"subscribe\"]/i");
     By successemessage = By.xpath("//*[@id=\"success-subscribe\"]/div");
     By cartButton = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[3]/a");
     By viewProduct = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[2]/ul/li/a");
@@ -34,6 +34,8 @@ public class HomePage {
     By dress = By.xpath("//*[@id=\"Women\"]/div/ul/li[1]/a");
     By recommendeditems = By.xpath("/html/body/section[2]/div/div/div[2]/div[2]");
     By addtocartof1strecommendeditem = By.xpath("//*[@id=\"recommended-item-carousel\"]/div/div[2]/div[2]/div/div/div/a");
+    By scrolluparrwo = By.xpath("//*[@id=\"scrollUp\"]/i");
+    By fullfledged = By.xpath("//*[@id=\"slider-carousel\"]/div/div[1]/div[1]/h2");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -56,7 +58,7 @@ public class HomePage {
     public boolean verifySubscriptionisVisible(){return driver.findElement(subscription).isDisplayed();}
     public void Enteremailclickarrowbutton(){
         driver.findElement(subscriptionEmail).sendKeys("testing@test.com");
-        driver.findElement(arrowButton).click();
+        driver.findElement(submitsubscripButton).click();
     }
     public boolean verifysuccessmessageisvisible(){return driver.findElement(successemessage).isDisplayed();}
 
@@ -76,7 +78,7 @@ public class HomePage {
         WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='overlay-content']//a[@data-product-id="+index+"]")));
         addToCartBtn.click();
     }
-    public boolean iscategoryvisable(){
+    public boolean iscategoryvisible(){
         return driver.findElement(categories).isDisplayed();
     }
 
@@ -108,7 +110,22 @@ public class HomePage {
         WebElement addToCartBtnofthe1stitem12 = wait.until(ExpectedConditions.elementToBeClickable(addtocartof1strecommendeditem));
         String idof1strecitem =  addToCartBtnofthe1stitem12.getAttribute("data-product-id");
         return Integer.parseInt(idof1strecitem);
+    }
+    public void pressonscrolluparrow(){
+        driver.findElement(scrolluparrwo).click();
+    }
+    public String isfullfledgedvisible(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebElement fullfledgedelement = wait.until(ExpectedConditions.elementToBeClickable(fullfledged));
 
+        String textfullfledged = fullfledgedelement.getText();
+        return textfullfledged;
+    }
+
+    public void scrollupwithoutarrow(){
+        WebElement header = driver.findElement(fullfledged);
+        Actions actions = new Actions(driver);
+        actions.scrollToElement(header).perform();
     }
 }
 

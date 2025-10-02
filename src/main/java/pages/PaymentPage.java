@@ -19,6 +19,8 @@ public class PaymentPage {
     By expirationyear = By.xpath("//*[@id=\"payment-form\"]/div[3]/div[3]/input");
     By payandconfirmorderbutton = By.xpath("//*[@id=\"submit\"]");
     By successmessage = By.xpath("//*[contains(text(),'Order Placed!')]");
+    By downloadinvoicebutton = By.xpath("//*[@id=\"form\"]/div/div/div/a");
+    By continuebutton = By.xpath("//*[@id=\"form\"]/div/div/div/div/a");
 
     public PaymentPage(WebDriver driver){
         this.driver= driver;
@@ -35,5 +37,13 @@ public class PaymentPage {
 
     public boolean issuccessmessagevisible() {
         return driver.findElement(successmessage).isDisplayed();
+    }
+
+    public void pressondownloadinvoicebutton(){
+        driver.findElement(downloadinvoicebutton).click();
+    }
+
+    public void pressoncontinuebutton(){
+        driver.findElement(continuebutton);
     }
 }

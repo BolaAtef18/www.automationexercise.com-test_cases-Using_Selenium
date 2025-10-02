@@ -12,7 +12,8 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_22_Add_to_cart_from_Recommended_items {
+public class Test_Case_23_Verify_address_details_in_checkout_page {
+
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -56,21 +57,46 @@ public class Test_Case_22_Add_to_cart_from_Recommended_items {
     }
 
     @Test
-    public void testAddtocartfromrecommendeditems() throws InterruptedException {
-        int index =homePage.idof1st();
-        System.out.println(index);
+    public void testVerifyaddressdetailsincheckoupage() throws InterruptedException {
+        int index =1;
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(2000);
-        homePage.scrolldowntorecommendeditems();
+        homePage.clickSignupLogin();
         Thread.sleep(1000);
-        homePage.isRecommendeditems();
+        signupPage.fillSignupForm("testerBola","testerBola@mail.com");
         Thread.sleep(1000);
-        homePage.pressonaddtocartbtnof1stiteminrecommended();
+        signupPage.fillAccountInfo();
+        Thread.sleep(1000);
+        signupPage.clickCreateAccount();
+        Thread.sleep(1000);
+        accountCreatedPage.contiuneButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(loggedInPage.isLogged_in_as_usernameVisible(), " Logged in as username is not visible!");
+        Thread.sleep(1000);
+        homePage.HoverAndAddProductToCart(index);
         Thread.sleep(1000);
         homePage.pressonviewcart();
         Thread.sleep(1000);
         cartPage.isProductDisplayed(index);
+        Thread.sleep(1000);
+        cartPage.pressonprocessdtocheckoutbutton();
+        Thread.sleep(1000);
+        Assert.assertEquals(signupPage.STAD(), checkOutPage.deliveryaddressappearincheckout());
+        System.out.println(signupPage.STAD());
+        System.out.println(checkOutPage.deliveryaddressappearincheckout());
+        Thread.sleep(1000);
+        Assert.assertEquals(signupPage.STAD(), checkOutPage.billingaddressappearincheckout());
+        System.out.println(signupPage.STAD());
+        System.out.println(checkOutPage.billingaddressappearincheckout());
+        Thread.sleep(1000);
+        checkOutPage.delete_button();
+        Thread.sleep(1000);
+        Assert.assertTrue(deleteButtonPage.isAccount_DeletedVisible(), " Account Deleted is not visible!");
+        Thread.sleep(1000);
+        deleteButtonPage.contine_button();
+        Thread.sleep(1000);
+
     }
 
 

@@ -57,7 +57,7 @@ public class Test_Case_18_View_Category_Products {
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
         Thread.sleep(2000);
-        homePage.iscategoryvisable();
+        homePage.iscategoryvisible();
         Thread.sleep(1000);
         homePage.womencat();
         Thread.sleep(1000);

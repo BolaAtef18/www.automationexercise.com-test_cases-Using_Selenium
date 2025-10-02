@@ -6,6 +6,11 @@ import org.openqa.selenium.WebElement;
 
 public class SignupPage {
 
+    public String STAD(){
+          String addrees = "123 Test Street";
+          return addrees;
+    }
+
         WebDriver driver;
 
         By nameField = By.name("name");
@@ -85,7 +90,7 @@ public class SignupPage {
         driver.findElement(firstName).sendKeys("Test");
         driver.findElement(lastName).sendKeys("User");
         driver.findElement(company).sendKeys("BA Company");
-        driver.findElement(address).sendKeys("123 Test Street");
+        driver.findElement(address).sendKeys(STAD());
         driver.findElement(country).sendKeys("India");
         driver.findElement(state).sendKeys("Test State");
         driver.findElement(city).sendKeys("Test City");

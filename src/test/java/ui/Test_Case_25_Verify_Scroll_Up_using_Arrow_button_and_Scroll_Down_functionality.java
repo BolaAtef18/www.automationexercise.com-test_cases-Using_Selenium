@@ -12,7 +12,8 @@ import pages.*;
 
 import java.time.Duration;
 
-public class Test_Case_22_Add_to_cart_from_Recommended_items {
+public class Test_Case_25_Verify_Scroll_Up_using_Arrow_button_and_Scroll_Down_functionality {
+
     WebDriver driver;
     HomePage homePage;
     SignupPage signupPage;
@@ -21,20 +22,13 @@ public class Test_Case_22_Add_to_cart_from_Recommended_items {
     DeleteButtonPage deleteButtonPage;
     LogOutPage logOutPage;
     AllProductsPage allProductsPage;
-    CartPage cartPage;
-    ProductsPage productsPage;
-    ProductDetailsPage productDetailsPage;
-    CheckOutPage checkOutPage;
-    PaymentPage paymentPage;
 
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
-        options.addArguments("--incognito");
-
+        options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
         driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -48,29 +42,24 @@ public class Test_Case_22_Add_to_cart_from_Recommended_items {
         deleteButtonPage = new DeleteButtonPage(driver);
         logOutPage = new LogOutPage(driver);
         allProductsPage = new AllProductsPage(driver);
-        cartPage = new CartPage(driver);
-        productsPage = new ProductsPage(driver);
-        productDetailsPage = new ProductDetailsPage(driver);
-        checkOutPage = new CheckOutPage(driver);
-        paymentPage = new PaymentPage(driver);
+
     }
 
     @Test
-    public void testAddtocartfromrecommendeditems() throws InterruptedException {
-        int index =homePage.idof1st();
-        System.out.println(index);
-
+    public void verifyscrollupusingarrow() throws InterruptedException {
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
-        Thread.sleep(2000);
-        homePage.scrolldowntorecommendeditems();
         Thread.sleep(1000);
-        homePage.isRecommendeditems();
+        homePage.scrolldowntosubscription();
         Thread.sleep(1000);
-        homePage.pressonaddtocartbtnof1stiteminrecommended();
+        homePage.verifySubscriptionisVisible();
         Thread.sleep(1000);
-        homePage.pressonviewcart();
+        homePage.pressonscrolluparrow();
+        Thread.sleep(3000);
+        String actual = homePage.isfullfledgedvisible();
+        System.out.println("Actual Result : ["+ actual +"]");
+        Assert.assertEquals(actual,"Full-Fledged practice website for Automation Engineers");
         Thread.sleep(1000);
-        cartPage.isProductDisplayed(index);
+
     }
 
 
