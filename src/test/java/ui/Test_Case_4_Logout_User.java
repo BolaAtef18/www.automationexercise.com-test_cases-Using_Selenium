@@ -30,6 +30,8 @@ public class Test_Case_4_Logout_User {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+
         //options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
