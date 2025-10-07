@@ -70,9 +70,9 @@ public class HomePage {
     public void HoverAndAddProductToCart(int index) throws InterruptedException {
 
         List<WebElement> products = driver.findElements(By.xpath("//div[@class='product-overlay']"));
-
         WebElement product = products.get(index-1);
         actions.moveToElement(product).perform();
+        Thread.sleep(1000);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='overlay-content']//a[@data-product-id="+index+"]")));

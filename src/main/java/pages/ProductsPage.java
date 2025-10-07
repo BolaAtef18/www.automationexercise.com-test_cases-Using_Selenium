@@ -16,7 +16,7 @@ public class ProductsPage {
 
 
     By firstProduct = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]");
-    By addtocartbutton1stproduct = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div/a");
+    By addtocartbutton1stproduct = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/a");
     By continueshoppingbutton = By.xpath("//*[@id=\"cartModal\"]/div/div/div[3]/button");
     By secondProduct = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]");
     By addtocartbutton2ndproduct = By.xpath("/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]/div[1]/a");

@@ -60,7 +60,7 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         int index= 6;
 
         Assert.assertTrue(homePage.isHomePageVisible(), "Home Page is not visible!");
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         homePage.HoverAndAddProductToCart(index);
         Thread.sleep(3000);
         homePage.pressonviewcart();

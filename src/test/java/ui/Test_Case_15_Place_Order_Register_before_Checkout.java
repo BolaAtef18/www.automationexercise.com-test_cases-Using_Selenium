@@ -72,7 +72,7 @@ public class Test_Case_15_Place_Order_Register_before_Checkout {
         accountCreatedPage.contiuneButton();
         Thread.sleep(1000);
         Assert.assertTrue(loggedInPage.isLogged_in_as_usernameVisible(),"Logged in as username is not visible!");
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
         homePage.HoverAndAddProductToCart(index);
         Thread.sleep(3000);

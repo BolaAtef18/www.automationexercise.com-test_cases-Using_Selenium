@@ -38,14 +38,14 @@ public class CartPage {
         return driver.findElement(By.xpath("//tr[@id='product-"+ index +"']")).isDisplayed();
     }
     public String getProductPrice(int index){
-        return driver.findElement(By.xpath("//*[@id=\"product-"+index+"]/td[3]/p")).getText();
+        return driver.findElement(By.xpath("//*[@id='product-"+index+"']/td[3]/p")).getText();
     }
     public String getProductQuantity(int index) {
-        return driver.findElement(By.xpath("//*[@id=\"product-"+index+"]/td[4]/button")).getText();
+        return driver.findElement(By.xpath("//*[@id='product-"+index+"']/td[4]/button")).getText();
     }
 
     public String getProductTotal(int index) {
-        return driver.findElement(By.xpath("//*[@id=\"product-"+index+"]/td[5]/p")).getText();
+        return driver.findElement(By.xpath("//*[@id='product-"+index+"']/td[5]/p")).getText();
     }
     public void pressonprocessdtocheckoutbutton (){driver.findElement(processdtocheckoutbutton).click();}
 
