@@ -80,6 +80,7 @@ public class Test_Case_18_View_Category_Products {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 18 successfully");
         driver.quit();
     }
 }

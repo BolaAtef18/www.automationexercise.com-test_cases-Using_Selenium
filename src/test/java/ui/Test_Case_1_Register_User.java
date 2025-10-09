@@ -65,6 +65,7 @@ public class Test_Case_1_Register_User {
 
         @AfterClass
         public void tearDown() {
+            System.out.println("Test Case 1 successfully");
             driver.quit();
         }
     }

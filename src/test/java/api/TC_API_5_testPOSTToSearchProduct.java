@@ -32,5 +32,7 @@ public class TC_API_5_testPOSTToSearchProduct {
 //            System.out.println(id + ", " + name);
             System.out.println(name);
         }
+        System.out.println("TC_API 5 successfully");
+
     }
 }

@@ -102,6 +102,7 @@ public class Test_Case_23_Verify_address_details_in_checkout_page {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 23 successfully");
         driver.quit();
     }
 }

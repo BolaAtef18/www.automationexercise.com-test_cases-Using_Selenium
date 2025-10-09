@@ -112,6 +112,7 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 14 successfully");
         driver.quit();
     }
 }

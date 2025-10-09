@@ -26,6 +26,9 @@ public class TC_API_4_testPUTToAllBrandsList {
         // Print response nicely
         System.out.println("Response Code: " + actualResponseCode);
         System.out.println("Response message:\n" + actualMessage);
+
+        System.out.println("TC_API 4 successfully");
+
     }
 
 }

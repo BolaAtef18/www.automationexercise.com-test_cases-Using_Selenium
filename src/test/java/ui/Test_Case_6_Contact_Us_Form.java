@@ -67,6 +67,7 @@ public class Test_Case_6_Contact_Us_Form {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 6 successfully");
         driver.quit();
     }
 }

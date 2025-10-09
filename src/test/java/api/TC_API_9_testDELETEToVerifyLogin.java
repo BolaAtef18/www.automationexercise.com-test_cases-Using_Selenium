@@ -28,5 +28,7 @@ public class TC_API_9_testDELETEToVerifyLogin {
         assertEquals(response.getStatusCode(), 200); // HTTP status code غالبًا 200
         assertEquals(responseCode, 405);             // Response code داخل JSON
         assertEquals(message, "This request method is not supported."); // الرسالة
+        System.out.println("TC_API 9 successfully");
+
     }
 }

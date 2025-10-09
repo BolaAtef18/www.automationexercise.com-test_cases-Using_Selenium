@@ -69,6 +69,7 @@ public class Test_Case_11_Verify_Subscription_in_Cart_page {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 11 successfully");
         driver.quit();
     }
 }

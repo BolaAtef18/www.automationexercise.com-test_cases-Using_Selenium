@@ -84,6 +84,7 @@ public class Test_Case_12_Add_Products_in_Cart {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 12 successfully");
         driver.quit();
     }
 

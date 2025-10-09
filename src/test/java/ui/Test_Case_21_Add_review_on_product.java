@@ -79,6 +79,7 @@ public class Test_Case_21_Add_review_on_product {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 21 successfully");
         driver.quit();
     }
 }

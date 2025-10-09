@@ -82,6 +82,7 @@ public class Test_Case_13_Verify_Product_quantity_in_Cart {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 13 successfully");
         driver.quit();
     }
 

@@ -28,6 +28,8 @@ public class TC_API_6_testPOSTToSearchProductWithoutSearchProductParameter {
 
         System.out.println("actual Response Code: "  + actualResponseCode);  // هيكون 200 لو تمام
         System.out.println("actual Message: " + actualMessage);
+        System.out.println("TC_API 6 successfully");
+
 
     }
 }

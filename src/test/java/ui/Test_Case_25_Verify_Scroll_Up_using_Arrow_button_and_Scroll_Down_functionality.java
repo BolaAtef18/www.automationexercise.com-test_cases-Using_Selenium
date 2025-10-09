@@ -65,6 +65,7 @@ public class Test_Case_25_Verify_Scroll_Up_using_Arrow_button_and_Scroll_Down_fu
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 25 successfully");
         driver.quit();
     }
 }

@@ -66,6 +66,7 @@ public class Test_Case_8_Verify_All_Products_and_product_detail_page {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 8 successfully");
         driver.quit();
     }
 }

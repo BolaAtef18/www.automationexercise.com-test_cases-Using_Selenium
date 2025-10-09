@@ -32,5 +32,8 @@ public class TC_API_10_testPOSTToVerifyLoginWithInvalidDetails {
         assertEquals(response.getStatusCode(), 200); // السيرفر بيرجع 200
         assertEquals(responseCode, 404);             // لكن جوه JSON بيرجع 404
         assertEquals(message, "User not found!");
+
+        System.out.println("TC_API 10 successfully");
+
     }
 }

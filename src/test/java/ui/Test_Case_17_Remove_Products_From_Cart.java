@@ -72,6 +72,7 @@ public class Test_Case_17_Remove_Products_From_Cart {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 17 successfully");
         driver.quit();
     }
 

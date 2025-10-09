@@ -56,6 +56,7 @@ public class Test_Case_7_Verify_Test_Cases_Page {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 7 successfully");
         driver.quit();
     }
 

@@ -76,6 +76,7 @@ public class Test_Case_22_Add_to_cart_from_Recommended_items {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 22 successfully");
         driver.quit();
     }
 }

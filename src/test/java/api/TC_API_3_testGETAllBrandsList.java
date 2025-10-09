@@ -40,5 +40,7 @@ public class TC_API_3_testGETAllBrandsList {
             String name = json.getString("brands[" + i + "].brand");
             System.out.println(id + ", " + name);
         }
+        System.out.println("TC_API 3 successfully");
+
     }
 }

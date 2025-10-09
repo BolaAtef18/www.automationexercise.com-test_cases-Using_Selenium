@@ -32,5 +32,7 @@ public class TC_API_7_POSTToVerifyLoginWithValidDetails {
         assertEquals(response.getStatusCode(), 200);      // HTTP status code
         assertEquals(responseCode, 200);                 // Response code inside JSON
         assertEquals(message, "User exists!");          // Message inside JSON
+        System.out.println("TC_API 7 successfully");
+
     }
 }

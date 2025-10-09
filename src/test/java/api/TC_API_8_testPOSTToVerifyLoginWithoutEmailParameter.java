@@ -31,5 +31,8 @@ public class TC_API_8_testPOSTToVerifyLoginWithoutEmailParameter {
     assertEquals(response.getStatusCode(), 200); // HTTP status code غالبًا 200
     assertEquals(responseCode, 400);             // Response code داخل الـ JSON
     assertEquals(message, "Bad request, email or password parameter is missing in POST request.");
-}
+
+    System.out.println("TC_API 8 successfully");
+
+    }
 }

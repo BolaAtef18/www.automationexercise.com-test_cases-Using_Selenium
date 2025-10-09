@@ -103,6 +103,7 @@ public class Test_Case_16_Place_Order_Login_before_Checkout {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 16 successfully");
         driver.quit();
     }
 }

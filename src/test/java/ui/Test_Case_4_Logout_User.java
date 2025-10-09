@@ -71,6 +71,7 @@ public class Test_Case_4_Logout_User {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 4 successfully");
         driver.quit();
     }
 }

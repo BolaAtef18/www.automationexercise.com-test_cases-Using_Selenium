@@ -74,6 +74,7 @@ public class Test_Case_19_View_Cart_Brand_Products {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 19 successfully");
         driver.quit();
     }
 }

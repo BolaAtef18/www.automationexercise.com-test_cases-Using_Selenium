@@ -67,6 +67,7 @@ public class Test_Case_9_Search_Product {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 9 successfully");
         driver.quit();
     }
 }

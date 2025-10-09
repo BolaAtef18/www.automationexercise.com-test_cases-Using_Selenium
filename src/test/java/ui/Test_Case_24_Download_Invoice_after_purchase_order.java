@@ -1,6 +1,7 @@
 package ui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.testfilter.TestPlanV1_0;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -126,6 +127,7 @@ public class Test_Case_24_Download_Invoice_after_purchase_order {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 24 successfully");
         driver.quit();
     }
 }

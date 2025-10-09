@@ -59,6 +59,7 @@ public class Test_Case_5_Register_User_with_existing_email {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 5 successfully");
         driver.quit();
     }
 }

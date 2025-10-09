@@ -63,6 +63,7 @@ public class Test_Case_10_Verify_Subscription_in_home_page {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 10 successfully");
         driver.quit();
     }
 }

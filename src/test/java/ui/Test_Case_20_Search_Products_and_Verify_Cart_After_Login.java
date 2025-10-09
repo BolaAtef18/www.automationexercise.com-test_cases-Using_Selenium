@@ -95,6 +95,7 @@ public class Test_Case_20_Search_Products_and_Verify_Cart_After_Login {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 20 successfully");
         driver.quit();
     }
 }

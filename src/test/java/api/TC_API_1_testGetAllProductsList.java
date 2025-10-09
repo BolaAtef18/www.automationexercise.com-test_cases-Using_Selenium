@@ -16,5 +16,7 @@ public class TC_API_1_testGetAllProductsList {
 
         // Verify Response contains "products"
         Assert.assertTrue(response.getBody().asString().contains("products"), "Response doesn't contain products");
+        System.out.println("TC_API 1 successfully");
+
     }
 }

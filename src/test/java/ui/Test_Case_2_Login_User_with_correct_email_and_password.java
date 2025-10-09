@@ -69,6 +69,7 @@ public class Test_Case_2_Login_User_with_correct_email_and_password {
 
     @AfterClass
     public void tearDown() {
+        System.out.println("Test Case 2 successfully");
         driver.quit();
     }
 }
