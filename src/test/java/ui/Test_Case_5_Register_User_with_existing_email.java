@@ -27,7 +27,6 @@ public class Test_Case_5_Register_User_with_existing_email {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
 
         options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
         driver = new ChromeDriver(options);

@@ -27,7 +27,6 @@ public class Test_Case_3_Login_User_with_incorrect_email_and_password {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
 
         options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
         driver = new ChromeDriver(options);
