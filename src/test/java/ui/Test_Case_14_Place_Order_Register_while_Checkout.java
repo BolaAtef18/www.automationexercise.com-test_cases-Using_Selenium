@@ -71,7 +71,7 @@ public class Test_Case_14_Place_Order_Register_while_Checkout {
         Thread.sleep(1000);
         cartPage.pressonRegister_Loginbutton();
         Thread.sleep(1000);
-        signupPage.fillSignupForm("testuser123","bola@testuser.com");
+        signupPage.fillSignupForm("testuser123","bola1@testuser.com");
         Thread.sleep(1000);
         signupPage.fillAccountInfo();
         Thread.sleep(1000);

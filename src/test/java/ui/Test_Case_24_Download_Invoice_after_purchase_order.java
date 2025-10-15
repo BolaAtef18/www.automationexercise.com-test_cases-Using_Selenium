@@ -83,7 +83,7 @@ public class Test_Case_24_Download_Invoice_after_purchase_order {
         Thread.sleep(1000);
         cartPage.pressonRegister_Loginbutton();
         Thread.sleep(1000);
-        signupPage.fillSignupForm("testuser123","bola@testuser.com");
+        signupPage.fillSignupForm("testuser123","bola4@testuser.com");
         Thread.sleep(1000);
         signupPage.fillAccountInfo();
         Thread.sleep(1000);

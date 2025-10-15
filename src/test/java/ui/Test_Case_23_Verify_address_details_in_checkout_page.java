@@ -64,7 +64,7 @@ public class Test_Case_23_Verify_address_details_in_checkout_page {
         Thread.sleep(2000);
         homePage.clickSignupLogin();
         Thread.sleep(1000);
-        signupPage.fillSignupForm("testerBola","bola@testuser.com");
+        signupPage.fillSignupForm("testerBola","bola3@testuser.com");
         Thread.sleep(1000);
         signupPage.fillAccountInfo();
         Thread.sleep(1000);
