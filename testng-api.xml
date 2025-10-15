@@ -1,20 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="APISuite">
-<!--    <listeners>-->
-<!--        <listener class-name="api.TC_API_1_testGetAllProductsList"></listener>-->
-<!--        <listener class-name="api.TC_API_2_testPOSTAllProductsList"></listener>-->
-<!--        <listener class-name="api.TC_API_3_testGETAllBrandsList"></listener>-->
-<!--        <listener class-name="api.TC_API_4_testPUTToAllBrandsList"></listener>-->
-<!--        <listener class-name="api.TC_API_5_testPOSTToSearchProduct"></listener>-->
-<!--        <listener class-name="api.TC_API_6_testPOSTToSearchProductWithoutSearchProductParameter"></listener>-->
-<!--        <listener class-name="api.TC_API_7_POSTToVerifyLoginWithValidDetails"></listener>-->
-<!--        <listener class-name="api.TC_API_8_testPOSTToVerifyLoginWithoutEmailParameter"></listener>-->
-<!--        <listener class-name="api.TC_API_9_testDELETEToVerifyLogin"></listener>-->
-<!--        <listener class-name="api.TC_API_10_testPOSTToVerifyLoginWithInvalidDetails"></listener>-->
-<!--    </listeners>-->
-    <test name="API Tests">
+<suite name="APITests">
+    <test name="API">
         <packages>
-            <package name="api"></package>
+            <package name="api"/>
         </packages>
     </test>
 </suite>

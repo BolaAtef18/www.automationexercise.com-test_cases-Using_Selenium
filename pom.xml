@@ -68,6 +68,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.3</version>
                 <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng-ui.xml</suiteXmlFile>
+                        <suiteXmlFile>testng-api.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
