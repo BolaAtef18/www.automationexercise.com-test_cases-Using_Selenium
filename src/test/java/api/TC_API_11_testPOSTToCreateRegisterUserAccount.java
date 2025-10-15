@@ -41,5 +41,7 @@ public class TC_API_11_testPOSTToCreateRegisterUserAccount {
         Assert.assertEquals(response.jsonPath().getInt("responseCode"),201);
 
         Assert.assertTrue(response.asString().contains("User created!"));
+        System.out.println("TC_API 11 successfully");
+
     }
 }

@@ -49,5 +49,7 @@ public class TC_API_12_testDELETEMETHODToDeleteUserAccount {
         // التحقق من نجاح الحذف
         Assert.assertEquals(DeletAccountresponse.getStatusCode(), 200);
         Assert.assertTrue(DeletAccountresponse.jsonPath().getString("message").contains("Account deleted!"));
+        System.out.println("TC_API 12 successfully");
+
     }
 }

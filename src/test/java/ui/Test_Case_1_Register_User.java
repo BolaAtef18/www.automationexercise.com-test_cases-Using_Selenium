@@ -23,6 +23,9 @@ public class Test_Case_1_Register_User {
         public void setup() {
             WebDriverManager.chromedriver().setup();
 
+//            System.setProperty("webdriver.chrome.driver", "C:\\Users\\batef\\ChromeDriver\\chromedriver.exe");
+
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
             driver = new ChromeDriver(options);
@@ -64,7 +67,7 @@ public class Test_Case_1_Register_User {
 
         @AfterClass
         public void tearDown() {
-            System.out.println("Test Case 1 successfully");
+                System.out.println("Test Case 1 successfully");
             driver.quit();
         }
     }

@@ -25,5 +25,7 @@ public class TC_API_13_testPUTMETHODToUpdateUserAccount {
         // Step 3: Validate response
         Assert.assertEquals(updateResponse.getStatusCode(), 200);
         Assert.assertTrue(updateResponse.asString().contains("User updated!"));
+        System.out.println("TC_API 13 successfully");
+
     }
 }

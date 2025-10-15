@@ -23,5 +23,7 @@ public class TC_API_14_testGETuseraccountdetailbyemail {
         // التحقق من الكود و الرسالة
         Assert.assertEquals(response.statusCode(), 200, "Status code mismatch");
         Assert.assertTrue(response.asString().contains("user"), "User details not found!");
+        System.out.println("TC_API 14 successfully");
+
     }
 }
